@@ -1,1 +1,1 @@
-from Integer import Integer
+from .Integer import Integer
