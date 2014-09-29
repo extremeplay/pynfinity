@@ -45,6 +45,8 @@ class Integer(object):
         :param other: Integer
         :return: Integer storing the result of subtract
         """
+        if len(self) < len(other):
+            return None
         res = Integer()
         t = 0
         for i in range(len(self)):
@@ -56,11 +58,12 @@ class Integer(object):
             else:
                 t = 0
 
+        if t == 1:
+            return None
+
         while len(res) > 0 and res[-1] == 0:
             res.storage.pop()
 
-        if t < 0:
-            return None
         return res
 
     def __mul__(self, other):

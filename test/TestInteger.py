@@ -24,6 +24,8 @@ class TestInteger(TestCase):
         self.assertEqual(Integer("7200000000000000000") - Integer("199999999999"),
                          Integer("7199999800000000001")
         )
+        self.assertIsNone(Integer("99") - Integer("100"))
+        self.assertIsNone(Integer("77") - Integer("88"))
 
     def test_divmod(self):
 
@@ -33,6 +35,7 @@ class TestInteger(TestCase):
                                 Integer("22222222222222222")),
                          (Integer("200000000000000"), Integer("44444444444444"))
         )
+        self.assertEqual(divmod(Integer("1"), Integer("0")), (None, None))
 
 if __name__ == '__main__':
     main()
